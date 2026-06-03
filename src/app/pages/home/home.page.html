@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Bookstore</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/cart']">
+        <ion-icon name="cart-outline" slot="icon-only"></ion-icon>
+        <ion-badge color="danger" *ngIf="cartCount > 0">{{ cartCount }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let book of books">
+      <ion-label>
+        <h2>{{ book.title }}</h2>
+        <p>{{ book.author }}</p>
+        <p><strong>R{{ book.price }}</strong></p>
+      </ion-label>
+
+      <ion-button
+        slot="end"
+        color="primary"
+        *ngIf="!isInCart(book.id)"
+        (click)="addToCart(book)">
+        Add to Cart
+      </ion-button>
+
+      <ion-button
+        slot="end"
+        color="danger"
+        *ngIf="isInCart(book.id)"
+        (click)="removeFromCart(book.id)">
+        Remove
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

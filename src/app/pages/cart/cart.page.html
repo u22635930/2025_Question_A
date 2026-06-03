@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- TODO (Q1.5 - 5 marks):
+       Update this template to:
+         - Loop through the cart array and render each book.
+         - Display the book's price in ZAR (e.g. R250) and its quantity.
+         - Provide buttons to INCREASE and DECREASE the quantity.
+         - Provide a REMOVE FROM CART button that uses a trash icon and a
+           click event handler.
+         - Display the total price of the cart in ZAR.
+  -->
+
+  <ion-button expand="block" color="success" (click)="checkout()" [disabled]="cart.length === 0">
+    Checkout
+  </ion-button>
+
+</ion-content>
