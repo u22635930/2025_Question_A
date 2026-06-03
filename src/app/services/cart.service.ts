@@ -15,11 +15,13 @@ export class CartService {
 
   // TODO (Q1.3a - 4 marks):
   // Modify this method to handle quantities.
-  // - If the book is NOT already in the cart, add it (with quantity = 1).
-  // - If the book IS already in the cart, increase its quantity by 1
+  // Currently it adds the book as a new entry every time.
+  // Update it so that:
+  // - If the book is NOT already in the cart, add it with quantity = 1.
+  // - If the book IS already in the cart, increment its quantity by 1
   //   instead of adding a duplicate entry.
   addToCart(book: Book) {
-
+    this.cart.push({ ...book });
   }
 
   removeFromCart(bookId: number) {
